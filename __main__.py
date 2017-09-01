@@ -68,12 +68,8 @@ def get_runner():
     IF "%version%" == "5.2" set VNCURL={DISTR}/xp/winvnc.exe
     IF NOT "%version%" == "5.1" IF NOT "%version%" == "5.2" set VNCURL={DISTR}/win8/winvnc.exe
 
-    set IDSETTER={IDSETTER}
-    echo %IDSETTER%
-    set REPEATER={REPEATER}
-
     cscript //Nologo %DLOAD_SCRIPT% %vncurl% %TMP%/winvnc.exe
-    cscript //Nologo %DLOAD_SCRIPT% %idsetter% %TMP%/id.txt
+    cscript //Nologo %DLOAD_SCRIPT% {IDSETTER} %TMP%/id.txt
     netsh advfirewall firewall add rule name="VNC Server" dir=in action=allow protocol=TCP localport=5900-5910
 
     (
@@ -141,7 +137,7 @@ def get_runner():
 	echo SingleWindowName= >> %TMP%/UltraVNC.ini
 
     msg "%username%" ID:%yourid%
-    %TMP%/winvnc.exe -autoreconnect ID:%yourid% -connect %repeater% -run
+    %TMP%/winvnc.exe -autoreconnect ID:%yourid% -connect {REPEATER} -run
 
     endlocal
     """
@@ -154,16 +150,6 @@ def get_runner():
     )
 
 
-@app.route('/ini', methods=['GET'])
-def settings():
-    f = io.BytesIO(ini.encode('cp1251'))
-	return send_file(
-        f,
-		attachment_filename='UltraVNC.ini",
-		mimetype='application/text',
-		as_attachment=True,
-	)
-
 @app.route('/helper', methods=['GET'])
 def helper():
     return render_template_string("""
@@ -173,4 +159,3 @@ def helper():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
-
