@@ -1,4 +1,4 @@
-from flask import Flask, send_file, render_template_string
+from flask import Flask, send_file, render_template
 import io
 import os
 
@@ -152,10 +152,7 @@ def get_runner():
 
 @app.route('/helper', methods=['GET'])
 def helper():
-    return render_template_string("""
-        # TODO: Make helper page
-    """)
-
+    return render_template('instruction.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=True)
