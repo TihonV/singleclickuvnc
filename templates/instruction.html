@@ -9,14 +9,20 @@
     <p align="left">Завантаження повинно було початись. Якщо завантаження не почалось натисніть <a href="{{ url_for('get_runner') }}">сюди</a></p>
     <h2 align="left">Інструкція по використанню</h2>
     <ol>
+      <li><strong>Натиснiть на кнопку "Завантажити файл", та виконайте наступне, як вказано на знiмках</strong></li>
+      <img src="{{ url_for('static', filename='1.png') }}"><br>
+      <img src="{{ url_for('static', filename='2.png') }}"><br>
       <li><strong>Після завантаження файлу, зайдіть у загрузки та відкрийте файл з правами адміністратора</strong></li>
       <p>Для цього натисніть правою кнопкою миші та виберіть відповідний пункт з контекстного меню</p>
-      <img src="{{ url_for('static', filename='3.png') }}"><br>
-      <li><strong>Після запуску програми може зʼявитись вікно захисника Windows</strong></li>
-      <p>Щоб запустити програму - натисніть "More info" та "Run anyway"<br>
-      <img src="{{ url_for('static', filename='4.png') }}" alt="image"><br>
       <img src="{{ url_for('static', filename='5.png') }}" alt="image"></p>
+      <li><strong>Після запуску програми може зʼявитись вікно захисника Windows</strong></li>
+      <p>Щоб запустити програму - натисніть "Подробнее" та "Выполнить в любом случае"<br>
+      <img src="{{ url_for('static', filename='3.png') }}" alt="image"></p><br>
+      <img src="{{ url_for('static', filename='4.png') }}" alt="image"></li>
       <li><strong>Далі очікуйте, доки зʼявиться вікно з вашим "ID"</strong><br>
+      <img src="{{ url_for('static', filename='8.png') }}" alt="image"></li>
+      <li><strong>Також можуть з`явитись такi вiкна. Натиснiть на кнопки, що обведенi червоним кольором<strong></li><br>
+      <img src="{{ url_for('static', filename='7.png') }}" alt="image"></li><br>
       <img src="{{ url_for('static', filename='6.png') }}" alt="image"></li>
     </ol>
   </body>
